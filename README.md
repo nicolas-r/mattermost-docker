@@ -1,6 +1,6 @@
 # Production Docker deployment for Mattermost
 
-This project enables deployment of a Mattermost server in a multi-node production configuration using Docker. 
+This project enables deployment of a Mattermost server in a multi-node production configuration using Docker.
 
 [![Build Status](https://travis-ci.org/mattermost/mattermost-docker.svg?branch=master)](https://travis-ci.org/mattermost/mattermost-docker)
 
@@ -8,9 +8,9 @@ Notes:
 - To install this Docker project on AWS Elastic Beanstalk please see [AWS Elastic Beanstalk Guide](./README.aws.md).
 - To install Mattermost without Docker directly onto a Linux-based operating systems, please see [Admin Guide](https://docs.mattermost.com/guides/administrator.html#installing-mattermost).
 
-## Installation using Docker Compose 
+## Installation using Docker Compose
 
-The following instructions deploy Mattermost in a production configuration using multi-node Docker Compose set up. 
+The following instructions deploy Mattermost in a production configuration using multi-node Docker Compose set up.
 
 ### Requirements
 
@@ -32,7 +32,9 @@ The following instructions deploy Mattermost in a production configuration using
 
 3. Build and run mattermost
 
+    ```
     docker-compose up -d
+    ```
 
 4. Open `https://your.domain` with your web browser.
 
@@ -44,12 +46,24 @@ The following instructions deploy Mattermost in a production configuration using
     environment:
       - MATTERMOST_ENABLE_SSL=false
     ```
-    
+
 2. Build and run mattermost
 
+    ```
     docker-compose up -d
+    ```
 
 3. Open `http://your.domain` with your web browser.
+
+### Install the Enterprise Version
+
+To install the enterprise version, uncomment the following line in docker-compose.yaml file:
+
+    ```
+    dockerfile: Dockerfile-enterprise
+    ```
+
+Then follow the instruction above.
 
 ## Starting/Stopping
 
