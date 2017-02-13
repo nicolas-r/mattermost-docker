@@ -21,8 +21,8 @@ services:
   app:
     build:
       context: app
-      # uncomment for enterprise version
-      #dockerfile: Dockerfile-enterprise
+      # comment out for team edition
+      dockerfile: Dockerfile-enterprise
     restart: always
     volumes:
       - ./volumes/app/mattermost/config:/mattermost/config:rw

@@ -17,6 +17,16 @@ The following instructions deploy Mattermost in a production configuration using
 * [docker]
 * [docker-compose]
 
+### Choose Edition to Install
+
+If you want to install enterprise edition, you can skip this section.
+
+To install the team edition, comment out the following line in docker-compose.yaml file:
+
+    ```
+    dockerfile: Dockerfile-enterprise
+    ```
+
 ### Install with SSL certificate
 
 1. Open docker-compose.yml and set `MATTERMOST_ENABLE_SSL` to true.
@@ -54,16 +64,6 @@ The following instructions deploy Mattermost in a production configuration using
     ```
 
 3. Open `http://your.domain` with your web browser.
-
-### Install the Enterprise Version
-
-To install the enterprise version, uncomment the following line in docker-compose.yaml file:
-
-    ```
-    dockerfile: Dockerfile-enterprise
-    ```
-
-Then follow the instruction above.
 
 ## Starting/Stopping
 
