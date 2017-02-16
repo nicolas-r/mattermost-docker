@@ -1,5 +1,9 @@
 FROM postgres:9.4
 
+ARG TERM=linux
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Update & install package
 RUN apt-get update \
     && apt-get install -y python-dev lzop pv daemontools curl build-essential \
     && curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | python \

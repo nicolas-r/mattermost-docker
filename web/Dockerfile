@@ -1,5 +1,9 @@
 FROM ubuntu:14.04
 
+ARG TERM=linux
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Update & install package
 RUN apt-get update && apt-get install -y nginx
 
 RUN rm /etc/nginx/sites-enabled/default

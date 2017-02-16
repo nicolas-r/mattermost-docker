@@ -12,10 +12,10 @@ export ARCHIVE_TIMEOUT
 # PGDATA is defined in upstream postgres dockerfile
 
 function update_conf () {
-    if [ -f $PGDATA/postgresql.conf ]; then
-        sed -i "s/wal_level =.*$/wal_level = $WAL_LEVEL/g" $PGDATA/postgresql.conf
-        sed -i "s/archive_mode =.*$/archive_mode = $ARCHIVE_MODE/g" $PGDATA/postgresql.conf
-        sed -i "s/archive_timeout =.*$/archive_timeout = $ARCHIVE_TIMEOUT/g" $PGDATA/postgresql.conf
+    if [ -f ${PGDATA}/postgresql.conf ]; then
+        sed -i "s/wal_level =.*$/wal_level = ${WAL_LEVEL}/g" ${PGDATA}/postgresql.conf
+        sed -i "s/archive_mode =.*$/archive_mode = ${ARCHIVE_MODE}/g" ${PGDATA}/postgresql.conf
+        sed -i "s/archive_timeout =.*$/archive_timeout = ${ARCHIVE_TIMEOUT}/g" ${PGDATA}/postgresql.conf
     fi
 }
 
@@ -23,7 +23,7 @@ if [ "${1:0:1}" = '-'  ]; then
     set -- postgres "$@"
 fi
 
-if [ "$1" = 'postgres'  ]; then
+if [ "$1" = 'postgres' ]; then
     VARS=(AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY WALE_S3_PREFIX AWS_REGION)
 
     for v in ${VARS[@]}; do
