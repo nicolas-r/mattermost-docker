@@ -1,8 +1,10 @@
+# Warning
+
+This is fork of the https://github.com/mattermost/mattermost-docker project with some minors modifications, mainly to give the possibility to specify a hostname and a port for the Nginx part
+
 # Production Docker deployment for Mattermost
 
 This project enables deployment of a Mattermost server in a multi-node production configuration using Docker. 
-
-[![Build Status](https://travis-ci.org/mattermost/mattermost-docker.svg?branch=master)](https://travis-ci.org/mattermost/mattermost-docker)
 
 Notes: 
 - To install this Docker project on AWS Elastic Beanstalk please see [AWS Elastic Beanstalk Guide](./README.aws.md).
@@ -16,6 +18,22 @@ The following instructions deploy Mattermost in a production configuration using
 
 * [docker]
 * [docker-compose]
+
+### Configure your environment
+
+Open docker-compose.yml and set the various variables to match your infrastructure
+
+1. Database
+
+   Set MM_DBNAME to the name ot the database use by Mattermost
+   
+   Set the two variables MM_USERNAME & MM_PASSWORD with the username/password that will have the right to use the database
+   
+   Set DB_HOST and DB_PORT with the hostname and port on which your Postgresql will run
+
+2. APP server
+
+   Set MATTERMOST_APP_SERVER and PLATFORM_PORT_80_TCP_PORT with the hostname and port on which your APP server will run
 
 ### Install with SSL certificate
 
